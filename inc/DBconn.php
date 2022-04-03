@@ -17,7 +17,7 @@ class DBConnection extends PDO
             // $db = new PDO($this->filename);
             $this->setAttribute(PDO::ATTR_DEFAULT_FETCH_MODE,PDO::FETCH_OBJ);
             // $this->db = $db;
-            print_r("connected");
+            
         } catch (PDOException $e) {
             echo $e->getMessage();
             $db = NULL;

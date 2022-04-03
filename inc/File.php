@@ -12,7 +12,7 @@ class File
 
     public function __construct($conn, int $uid = null)
     {
-        session_start();
+     
         $this->conn = $conn;
         if (isset($uid)) {
             $this->uid = $uid;

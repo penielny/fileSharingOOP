@@ -29,15 +29,19 @@ $file = $file->getUid($uid);
 </head>
 
 <body>
+
     <?php
+
     if ($file->privacy == 2) {
         echo " <b class=`font-bold text-center text-red-600 text-xl`> sorry this file is a private file and cant be downloaded </b>";
+        exit();
+    } else {
+        echo "<a class=`p-3 bg-green-500 font-bold` download  href='./../store/$file->uid.$file->ext'>Download File</a>";
     }
-    exit();
 
     ?>
 
-    <a href="./../store/">Download File</a>
+
 </body>
 
 </html>
