@@ -20,14 +20,14 @@ class File
         }
     }
 
-    public function getUid(int $id = null)
+    public function getUid( $id = null)
     {
         if (isset($id)) {
             $this->id = $id;
         }
         $prepareStmt = $this->conn->prepare("SELECT * FROM `$this->tblname` WHERE `uid`=? ");
-        $response = $prepareStmt->execute([$this->id]);
-        return $response;
+        $prepareStmt->execute([$this->id]);
+        return $prepareStmt->fetch();
     }
 
     public function create($file, $privacy)

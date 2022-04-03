@@ -6,26 +6,38 @@ include './../inc/File.php';
 include './../inc/Account.php';
 include './../inc/DBconn.php';
 
+$uid = $_GET['id'];
 
-$isAuth = isLoggedIn();
-if ($isAuth == false) {
-    header('Location: ./../login/');
-    exit();
-}
+$conn = new DBConnection(NULL);
+$file =  new File($conn, null);
+$file = $file->getUid($uid);
 
 
- ?>
+
+
+?>
 
 
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Share to public</title>
 </head>
+
 <body>
-    
+    <?php
+    if ($file->privacy == 2) {
+        echo " <b class=`font-bold text-center text-red-600 text-xl`> sorry this file is a private file and cant be downloaded </b>";
+    }
+    exit();
+
+    ?>
+
+    <a href="./../store/">Download File</a>
 </body>
+
 </html>
