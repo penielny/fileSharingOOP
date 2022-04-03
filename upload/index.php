@@ -1,3 +1,21 @@
+<?php
+
+include './../inc/session.php';
+include './../inc/File.php';
+include './../inc/Account.php';
+include './../inc/DBconn.php';
+
+
+print_r($_GET);
+
+$isAuth = isLoggedIn();
+if ($isAuth == false) {
+    header('Location: ./../login/');
+    exit();
+}
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -39,10 +57,10 @@
                 <div>
                 <div class="space-x-5">
                     <label class="inline-flex items-center mt-3">
-                        <input type="checkbox" name="privacy" id="privacy" class="form-checkbox h-5 w-5 text-gray-600" value="1" ><span class="ml-2 text-gray-700">Private</span>
+                        <input type="checkbox" name="privacy" id="privacy" class="form-checkbox h-5 w-5 text-gray-600" value="2" ><span class="ml-2 text-gray-700">Private</span>
                     </label>
                     <label class="inline-flex items-center mt-3">
-                        <input type="checkbox" name="privacy" id="privacy" class="form-checkbox h-5 w-5 text-gray-600" value="2" ><span class="ml-2 text-gray-700">Public</span>
+                        <input type="checkbox" name="privacy" id="privacy" class="form-checkbox h-5 w-5 text-gray-600" value="1" ><span class="ml-2 text-gray-700">Public</span>
                     </label>
                 </div>
                 </div>
