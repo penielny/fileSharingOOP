@@ -1,0 +1,28 @@
+Account
+- id:int
+- name:string
+- email:string
+- password:string
+- created_at:date_time
+
+
+File 
+- id:int
+- account_id:int
+- name:string
+- uid:string
+- ext:string
+- size:int
+- privacy:int
+- created_at:date_time
+
+
+
+Privacy
+- int:int
+- name:string
+- discription:string
+
+Privacy( id=1 , name="Public" discription="every one with link can view")
+Privacy( id=2 , name="Private" discription="Only you can watch this file")
+Privacy( id=3 , name="Trace" discription="Collect email of every one who watches this file")
